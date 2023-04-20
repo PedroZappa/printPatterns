@@ -14,7 +14,7 @@ This repository contains a C program called `printpatterns.c` that generates var
 To get started with this project, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/username/printpatterns.git
+git clone https://github.com/PedroZappa/printpatterns.git
 ```
 
 Make sure you have a C compiler installed, such as [GCC](https://gcc.gnu.org/) to compile the program.
