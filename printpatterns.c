@@ -1,18 +1,22 @@
 #include <stdio.h>
+#include <stdbool.h>
+
+bool valid_pattern(int pattern) {
+  return pattern >= 1 && pattern <= 4;
+}
 
 int main() {
   // i = rows, j = spaces, k = stars;
-  int i, j, rows, k, pattern;
+  int i, j, rows, k, pattern, space;
 
   // Choose Pattern
-  printf("[ Pattern Printer ]\nSelect a Pattern:\n1: Half-Pyramid\n2: Full-Pyramid\n3: Inverted Half-Pyramid:");
+  printf("[ Pattern Printer ]\nSelect a Pattern:\n1: Half-Pyramid\n2: Full-Pyramid\n3: Inverted Half-Pyramid:\n4: Inverted Full-Pyramid:\n");
   scanf("%d", &pattern);
-
-  if (pattern != 1 && pattern != 2 && pattern != 3) {
+  // Validate Input
+  if (!valid_pattern(pattern)) {
     printf("Error! Invalid Pattern Code.\n");
     return 0;
   }
-
   // Take Rows Input
   printf("\nEnter the number of Rows: ");
   scanf("%d", &rows); 
@@ -44,6 +48,17 @@ int main() {
       }
       printf("\n");
    }
+  } else if (pattern == 4) {
+    // Print Inverted Full-Pyramid Pattern
+    for (i = rows; i >= 1; --i) {
+      for (space = 0; space < rows - i; ++space)
+         printf("  ");
+      for (j = i; j <= 2 * i - 1; ++j)
+         printf("* ");
+      for (j = 0; j < i - 1; ++j)
+         printf("* ");
+      printf("\n");
+    } 
   } else {
     printf("Error! Invalid Pattern Code.\n");
   }
