@@ -5,8 +5,13 @@ int main() {
   int i, j, rows, k, pattern;
 
   // Choose Pattern
-  printf("[ Pattern Printer ]\nSelect a Pattern:\nHalf-pyramid: 1\nFull-pyramid: 2\n:");
+  printf("[ Pattern Printer ]\nSelect a Pattern:\n1: Half-Pyramid\n2: Full-Pyramid\n3: Inverted Half-Pyramid:");
   scanf("%d", &pattern);
+
+  if (pattern != 1 && pattern != 2 && pattern != 3) {
+    printf("Error! Invalid Pattern Code.\n");
+    return 0;
+  }
 
   // Take Rows Input
   printf("\nEnter the number of Rows: ");
@@ -14,8 +19,8 @@ int main() {
 
   if (pattern == 1) {
     // Print Half-Pyramid Pattern
-    for (i = 1; i <= rows; i++) { // Number o'Rows
-      for (j = 1; j <= i; j++) { // Number o'Stars
+    for (i = 1; i <= rows; ++i) { // Number o'Rows
+      for (j = 1; j <= i; ++j) { // Number o'Stars
         printf("* ");
       }
       printf("\n");
@@ -31,8 +36,16 @@ int main() {
       }
       printf("\n");
     }
+  } else if (pattern == 3) {
+    // Print Inverted Half-Pyramid Pattern
+    for (i = rows; i >= 1; --i) {
+      for (j = 1; j <= i; ++j) {
+         printf("* ");
+      }
+      printf("\n");
+   }
   } else {
-    printf("Error! Invalid Pattern.\n");
+    printf("Error! Invalid Pattern Code.\n");
   }
 
   return 0;
